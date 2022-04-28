@@ -16,15 +16,15 @@ class Persona {
 
     //METODOS 
     Saludar(){
-
+        return `HOLA MI NOMBRES ES ${this.nombre} ${this.apellido} y tengo ${this.edad} años `
     }
 
     Hablar(){
-
+        return "bla bla bla estoy tarareando"
     }
 
-    Saludar(){
-
+    Accion(){
+        return "hola soy " + " " + this.nombre + " " + this.Hablar()     
     }
 
 }
@@ -32,4 +32,9 @@ class Persona {
 // HARCOEADO - NOSOTROS VAMOS A PASARLE LA INFORMACIÓN 
 //INSTACIAR NUESTROS OBJETOS DE LA CLASE 
 const personaUno = new Persona('CESAR','GARCIA',28,'COLOMBIA','PROFESOR')  
-console.log(personaUno)
+const personaDos = new Persona('RENE','MANZANO',30,'MEXICANO','PROFESOR')
+const personaTres = new Persona('ESTEBAN','GONZALEZ',20,'COLOMBIA','ESTUDIANTE')
+
+//console.log(personaUno, personaDos, personaTres)
+console.log(personaUno.Saludar())
+console.log(personaDos.Accion())
