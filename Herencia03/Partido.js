@@ -1,5 +1,5 @@
 //* PARTIDO ES MI SUBCLASE
-import {Largometraje} from './Largometraje'
+import {Largometraje} from './Largometraje.js'
 
 class Partido extends Largometraje {
     constructor(titulo,duracion,equipo){
