@@ -9,7 +9,7 @@ class Sala {
     //METODOS 
     setMovie(){
       return "Se está reproduciendo: " + this.largometraje.getTitle() + 
-                    "Duración " + this.largometraje.getDuration();
+                    "\nDuración: " + this.largometraje.getDuration();
                 }
     getPeople(){
        return this.cantGente
