@@ -56,4 +56,105 @@ var primerElemento = alumnos2.shift()
 console.log(primerElemento)
 console.log(alumnos2)
 
+//SPLIT
+var juntado = "perros,gatos,tortugas,conejo,vibora,hamster,iguana,peces,llamas"
+var separado = juntado.split(",")
+console.log(separado)
 
+var comida = "tacos;Tortas:Chilaquiles.Tostadas/Pozole,Quesadilla;enchiladas flautas+pancita"
+var comida2 = comida
+var comidas = comida.split(";")
+console.log(comidas)
+
+//replace
+var ejemploReplace = "computadora"
+var rem = ejemploReplace.replace("c","N")
+console.log(rem)
+
+//Solucion de erick
+var separadores = [","," ",";",":","/","+","."]
+for(let x = 0; x < comida.length; x++) {
+    for(let y =0; y< separadores.length;y++){
+        if(separadores[y]== comida[x]){
+            comida = comida.replace(separadores[y],",")
+        }
+
+    }
+}
+
+
+     /*if (comida[x] === ";"){
+          comida = comida.replace(";", ",") }
+          else if (comida[x] === ":"){ comida = comida.replace(":", ",") }
+          else if (comida[x] === "."){ comida = comida.replace(".", ",") }
+          else if (comida[x] === "/"){ comida = comida.replace("/", ",") }
+          else if (comida[x] === "+"){ comida = comida.replace("+", ",") }
+          else if (comida[x] === " "){ comida = comida.replace(" ", ",") } } */
+var final = comida.split(",")
+//Segunda manera con split y join
+var final2 = comida2.split(";").join(",").split(":").join(",").split("/").join(",").split("+").join(",").split(" ").join(",").split(",")
+console.log(final)
+console.log(final2)
+//expresion regular 
+var expresionRegular = /[:, ;.+/]/
+var final3 = comida.split(expresionRegular)
+
+//Arrays con JSON JAVASCRIPT OBJECT NOTATION 
+
+var estudiantes = [
+    {
+        nombre:"Andres",
+        apellido:"Guevara",
+        edad:28,
+        mayor:false
+    },
+    {
+        nombre:"Maria de los Angeles",
+        apellido:"Baltazar",
+        edad:40,
+        mayor:false
+    },
+    {
+        nombre:"Rene",
+        apellido:"Manzano",
+        edad:30,
+        mayor:false
+    },
+    {
+        nombre:"Miguel",
+        apellido:"Sauza",
+        edad:25,
+        mayor:false
+    }
+]
+for(let i =0;i< estudiantes.length;i++){
+
+    console.log(estudiantes[i].nombre)
+
+}
+//RECORRER CON UN FOR EACH
+estudiantes.forEach((elementoActual,indice,array)=>{
+
+    console.log(elementoActual)
+    console.log(indice)
+    console.log(array)
+
+
+})
+//MAP
+var estudiantesnuevo = estudiantes.map((elementoActual,indice,array)=>{
+    if (elementoActual.edad >29){
+        return{...elementoActual,mayor:true}
+    }
+    else{
+        return{...elementoActual,mayor:false
+    }}
+    
+
+
+})
+console.log(estudiantesnuevo)
+//FILTER
+
+
+//REDUCE
