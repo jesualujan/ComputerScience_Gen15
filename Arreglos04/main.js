@@ -106,25 +106,29 @@ var estudiantes = [
         nombre:"Andres",
         apellido:"Guevara",
         edad:28,
-        mayor:false
+        mayor:false,
+        sueldo:5000
     },
     {
         nombre:"Maria de los Angeles",
         apellido:"Baltazar",
         edad:40,
-        mayor:false
+        mayor:false,
+        sueldo:15000
     },
     {
         nombre:"Rene",
         apellido:"Manzano",
         edad:30,
-        mayor:false
+        mayor:false,
+        sueldo:2000
     },
     {
         nombre:"Miguel",
         apellido:"Sauza",
         edad:25,
-        mayor:false
+        mayor:false,
+        sueldo:20000
     }
 ]
 for(let i =0;i< estudiantes.length;i++){
@@ -132,7 +136,10 @@ for(let i =0;i< estudiantes.length;i++){
     console.log(estudiantes[i].nombre)
 
 }
-//RECORRER CON UN FOR EACH
+
+//METODOS FUNCIONALES
+//RECORRER CON UN FOR EACH  
+
 estudiantes.forEach((elementoActual,indice,array)=>{
 
     console.log(elementoActual)
@@ -154,7 +161,28 @@ var estudiantesnuevo = estudiantes.map((elementoActual,indice,array)=>{
 
 })
 console.log(estudiantesnuevo)
-//FILTER
+var estudiantesIncrementoSueldo =estudiantes.map((elemento,indice,arreglo)=>{
+    return {...elemento,sueldo:elemento.sueldo+1500,seguroMedico:true}
 
+})
+console.log(estudiantesIncrementoSueldo)
+
+
+
+//FILTER  nos permite crear un arreglo a partir de los elementos de otro PERO QUE CUMPLAN CON UNA CONDICION DADA
+
+var estudiantesFiltrados = estudiantes.filter((elemento,indice,arreglo)=>{
+    return elemento.sueldo >= 10000
+
+})
+console.log(estudiantesFiltrados)
 
 //REDUCE
+
+const numerosArreglo = [1,5,10,15,20]
+const stringArreglo = ["rene","roberto",50,"manzano"]
+const funcion = (acumulador,valor) => acumulador*valor
+console.log(numerosArreglo.reduce(funcion,10)) //primer parametro es la callback function y el segundo es el valor inicial
+//console.log(numerosArreglo.reduce((acumulador,valor)=>{
+//    return acumulador+valor
+//})) // esto es equivalente a console.log(numerosArreglo.reduce(funcion))
