@@ -3,7 +3,7 @@
 //* TIENE UN APUNTADOR/ENLACE AL SIGUIENTE NODO 
 
 class Node {
-    constructor(){
+    constructor(data){
         this.data=data //en data guardamos cualquier objeto que queramos
         this.next=null //por defecto este es null
     }
@@ -27,7 +27,7 @@ class LinkedList {
     }
     //METODO AUXILIAR 
     isEmpty(){
-       return this.head===null 
+       return this.head===null // 0 nodos la lista está vacía
     }
 
     //*METODOS DE NUESTRA LISTA ENLAZADA
@@ -108,3 +108,24 @@ class LinkedList {
     }
 
 }
+
+//! AGREGAR DATOS A NUESTROS NODOS 
+const listaNumeros = new LinkedList ()
+console.log(listaNumeros.isEmpty()) //TRUE 
+
+//agregar nodos
+
+listaNumeros.addStart(100)
+listaNumeros.addStart(200)
+listaNumeros.addStart(300)
+listaNumeros.addStart(400)
+listaNumeros.addEnd(500)
+console.log("NODO: " , listaNumeros)
+// listaNumeros.print()
+
+//ELIMINAR DATA A NUESTRO NODO
+console.log("ELIMINADO: ", listaNumeros.delete(100))
+console.log("NODO ACTUAL: " , listaNumeros)
+
+//BUSCAR UN NODO POR SU INDICE 
+console.log("TRAER EL INDICIE 2: ", listaNumeros.getNode(2))
