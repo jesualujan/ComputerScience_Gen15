@@ -17,7 +17,7 @@ class Node {
   //? AGEGAR UN ELELEMTO (add)
   //? - al principio(addStart) o  -al final (addEnd)
   //? BORRAR UN ELEMENTO delete(data)
-  //? BUSCAR UN ELEMENTO get(index)
+  //? BUSCAR UN ELEMENTO get(index) 
 
 
 class LinkedList {
@@ -63,13 +63,48 @@ class LinkedList {
        this.length++ //saber cuantos elementos tengo en mi lista.
     }
 
+    delete(data){
+        //vamos a verificar que dato va a ser borrado
+        let currentNode=this.head
+        let previousNode = null // almacena el nodo con que hay que reconectar 
+        if(currentNode.data===data){
+            //vamos a reasignar la cabeza a mi nodo 
+            this.head=currentNode.next //reasigno la cabeza(head) de mi nodo
+        }else{
+                //ESTAMOS HACIENDO OTRO RECORRIDO, PUESTO QUE ESTAMOS BORRANDO NODOS (data)
+           while(currentNode.data !== data && currentNode.next !== null){
+               previousNode = currentNode // el currentNode se vuelve previousNode
+               currentNode = currentNode.next // pasar al siguiente nodo (reconectar)
+           }    
+           previousNode.next=currentNode.next
+        }
+        this.length--
+        return "la data: " + data + " ha sido eliminada"
+    }
+   
+    getNode(index){
+             // 0 nodos      o   index es mayor
+        if(this.head===null || index > this.length){
+            return null 
+        }else{   
+            // 1 -> 2 -> 3 
+            let counter = 1
+            let currentNode=this.head
+            while(counter !== index){
+                    counter ++
+                    currentNode=currentNode.next
+            }   
+            return currentNode
+        }
+    }
 
+    print(){
+        //nodo actual
+        let currentNode=this.head //tomar en cuenta la cabecera 
+        while(currentNode){
+            console.log(currentNode.data)
+            currentNode=currentNode.next
+        }
+    }
 
-
-
-
-
-
-
-    
 }
