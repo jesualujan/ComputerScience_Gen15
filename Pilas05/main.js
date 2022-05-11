@@ -103,4 +103,43 @@ const miFuncionFor = (pila,numero)=>{
 console.log(miFuncionFor(pilaNombres,2))
 
 
+// 2.- Escribe una función “reemplazar” que tenga como parámetros una pila de elementos, y dos valores también de tipo Number “nuevo” y “viejo”, de forma que si el segundo valor aparece en algún lugar de la pila, sea reemplazado por el primero (Solo la primera vez), y hará pop de los elementos más nuevos.
+// Entrada: reemplazar([3,2,3,4,6,8,1,2,5,5], 7, 2)
+// Salida: [3,2,3,4,6,8,1,7]
+// 3.- Un conductor maneja de un pueblo origen a un pueblo destino, pasando por varios
+// pueblos. Una vez en el pueblo destino, el conductor debe regresar a casa por el mismo
+// camino. Muestre el camino recorrido tanto de ida como de vuelta.
+// Recorrido: Pueblo Origen → pueblo 1 → pueblo 2 → destino
+// Regreso: destino → pueblo 2’ → pueblo 1 → Pueblo Origen
 
+const remplazar=(pila, numero1,numero2)=>{
+    let lon = pila.longitud()
+    for (let i=0; i<lon;i++){
+
+        if(pila.peek()==numero2){
+            pila.borrar()
+            pila.apilar(numero1)
+            console.log(pila)
+            return pila
+        }
+        else{
+            
+            pila.borrar()
+        }
+    }
+
+
+}
+var arregloN = [42,4,67,8,3,334,66,4,3,7,9,24]
+
+const pilaNueva = new Pila()
+
+for (let i =0;i< arregloN.length; i++ ){
+    pilaNueva.apilar(arregloN[i])
+
+}
+console.log(pilaNueva)
+var p = remplazar(pilaNueva,666,4)
+console.log(p)
+
+//resultado esperado es [42,4,67,8,3,334,66,666]
