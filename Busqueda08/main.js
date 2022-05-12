@@ -167,6 +167,126 @@ if (resultadoBinario2 >=0 )console.log(`Si existe tu palabra y esta en la posici
 if(resultadoBinario2 ===-1)console.log("NO EXISTE TU PALABRA")
 
 
+const letras = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t"]
+const busquedaLetras = (lista, alfabeto)=>{
+  	const size = lista.length
+  	let index = 0;
+  	let cantidadAparicion = 0
+  	let posicionAparicion =  []
+  	let letraAparicion = []
+  	while (index < size){
+  		let elementoPresente = lista[index]
+  		for(let i = 0; i < alfabeto.length;i++){
+  			if(elementoPresente === alfabeto[i]){
+  			cantidadAparicion++
+  			posicionAparicion.push(index)
+  			letraAparicion.push(alfabeto[i])
+  			}
+  		}
+  		
+  		
+  				
+  		
+  		
+  		
+  		index++
+  	
+  	
+  	}
+  	if(cantidadAparicion >0){
+  		return{
+  			numero_apariciones:cantidadAparicion,
+  			posiciones_encontradas: posicionAparicion,
+  			letras_encontradas: letraAparicion
+  		}
+  	
+  	
+  	}
+  	return `Ninguna letra se ha encontrado`
+  	
+  
+  
+  
+  }
+
+const ejemplo = [8,"e",7,2,"a","d","f",2,3,1,4,3]
+const resultado3 = busquedaLetras(ejemplo,letras)
+if(resultado.numero_apariciones>0){
+	console.log(`Se encontraron las siguientes letras ${resultado3.letras_encontradas}  y esta en las posiciones: ${resultado3.posiciones_encontradas}`)
+
+
+}
+else{
+	console.log(resultado)
+}
+
+
+
+//5.- Crear una clase llamada Contacto con los siguientes datos
+// - Nombre
+// - Apellidos
+// - Telefono
+//
+// Después crear una clase que sea ListaContactos la cual tendrá dos métodos
+// - Agregar un contacto
+// - Buscar un contacto por nombre 
+
+class Contacto {
+	constructor(nombre,apellido, telefono){
+		this.nombre = nombre,
+		this.apellido = apellido,
+		this.telefono = telefono
+		
+	}
+
+}
+
+class Agenda{
+
+	constructor(){
+		this.lista = []// constructor vacio que inicia un array vacio
+	}
+	//metodo para agregar un contacto a nuestra agenda (a this.lista)
+	
+	agregar(contacto){
+	
+		this.lista.push(contacto)
+	}
+	// metodo para buscar un nombre en nuestra agenda, recorre la lista de contactos uno por uno y compara con el nombre recibido
+	buscar(nombre){
+		var listaaux = this.lista
+		for(let i=0; i<listaaux.length;i++){
+			if(nombre === listaaux[i].nombre){
+				return listaaux[i] //en caso de encontrarse el nombre, regresamos el contacto completo
+			
+			
+			}
+		
+		}
+		return `No se encontro ${nombre} en la agenda` //en caso de encontrar regresamos este string
+		
+	}
+
+}
+
+var reneContacto = new Contacto("Rene","Manzano",656454464)
+var jesuaContacto = new Contacto("Jesua","Lujan",7898973221)
+var adrianContacto = new Contacto("Adrian","Aviles",64655151465)
+var erickContacto = new Contacto("Erick","Hernandez",6548654164)
+
+var agendaDevf = new Agenda()
+
+// Agregamos los contactos que creamos a nuestra agenda
+
+agendaDevf.agregar(reneContacto)
+agendaDevf.agregar(jesuaContacto)
+agendaDevf.agregar(adrianContacto)
+agendaDevf.agregar(erickContacto)
+
+//realizamos una busqueda por nombre
+
+console.log(agendaDevf.buscar("Adrian"))
+
 
 
 
