@@ -76,3 +76,13 @@ class BinaryTree { //? VAMOS A CONSTRUIR NUESTRO ÁRBOL BINARIO
             return false 
    }
 }
+
+
+//agregar información // instancias 
+
+const nodo = new BinaryTree()
+nodo.add(12)
+nodo.add(13)
+nodo.add(11)
+console.log(nodo.contains(20))//false, no existe el nodo con la data 20
+console.log(nodo)
